@@ -5,7 +5,6 @@ using namespace std;
 
 Locatii::Locatii()
 {
-	delete[] adresa;
 	adresa = nullptr;
 	sector = "";
 	nr_locuri = 0;
