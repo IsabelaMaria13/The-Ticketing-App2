@@ -6,26 +6,44 @@ using namespace std;
 class Locatii
 {
 private:
-	char* adresa;
+	char* adresa; //vector de caractere alocat dinamic
 	string sector;
-	int** rand_loc;
+	int rand;
+	int loc;
+	int* locOcupat; //vector de numere alocat dinamic
 	int nr_locuri;
 
 public:
+//constructori
 	Locatii();
-	Locatii(char*, string, int**, int);
-
+	Locatii(char*, string, int, int, int);
+ //getteri  
 	char* getAdresa();
 	string getSector();
-	int** getRandLoc();
-
+	int getRand();
+	int getLoc();
+	int getNrLocuri();
+	int* getLocOcupat();
+//setteri
 	void setAdresa(char*);
 	void setSector(string);
-	void setRandLoc(int**,int);
-	
+	void setRand(int);
+	void setLoc(int);
+	void setLocOcupat(int*, int);
+//metode generice
+	void OcupaLoc(int, int);
+	void SchimbaNumeleAdresei(char*);
+	//int Verifica_disponibilitatea_locurilor(int*);
+//operatori
+	int operator[](int);
+	int operator()(int);
+//regula celor 3
 	Locatii(Locatii& locatie);
 	Locatii& operator=(const Locatii& locatieNoua);
 	~Locatii();
+//afisare si citire
+	friend ostream& operator<<(ostream& out, Locatii l);
+	friend istream& operator>>(istream& in, Locatii&l);
 
 };
 
